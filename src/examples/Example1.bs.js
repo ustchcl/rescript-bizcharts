@@ -2,7 +2,7 @@
 
 var React = require("react");
 var Bizcharts = require("bizcharts");
-var Caml_array = require("bs-platform/lib/js/caml_array.js");
+var Coordinate$ReasonReactBizcharts = require("../base/Coordinate.bs.js");
 
 var data = [
   {
@@ -128,22 +128,11 @@ function Example1(Props) {
               padding: "auto",
               interactions: ["active-region"],
               children: null
-            }, React.createElement(Bizcharts.Line, {
-                  position: "year*rainFall"
-                }), React.createElement(Bizcharts.Point, {
-                  position: "year*rainFall"
-                }), React.createElement(Bizcharts.Tooltip, {
-                  title: "year",
-                  shared: true,
-                  children: (function (title, items) {
-                      console.log(title);
-                      console.log(items);
-                      if (items.length !== 0) {
-                        return React.createElement("div", undefined, title + "年的降水: " + Caml_array.caml_array_get(items, 0).value + "cm");
-                      } else {
-                        return React.createElement("div", undefined, "自定义tooltip");
-                      }
-                    })
+            }, React.createElement(Bizcharts.Interval, {
+                  position: "year*rainFall",
+                  color: "year"
+                }), React.createElement(Coordinate$ReasonReactBizcharts.make, {
+                  type_: "polar"
                 }));
 }
 

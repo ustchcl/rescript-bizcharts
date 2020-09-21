@@ -39,20 +39,7 @@ let data = [
 @react.component()
 let make = () => {
   <Chart height=300.0 width=500.0 autoFit=true data interactions=["active-region"] padding="auto" >
-    <Line position="year*rainFall" />
-    <Point position="year*rainFall" />
-    <Tooltip shared=true title="year">
-      {
-        (title: string, items: array<'a>) => {
-          Js.log(title)
-          Js.log(items)
-          if Array.length(items) > 0 {
-            <div>{React.string(`${title}年的降水: ${items[0]["value"]}cm`)}</div>
-          } else {
-            <div>{React.string(`自定义tooltip`)}</div>
-          }
-        }
-      }
-    </Tooltip>
+    <Interval color="year" position="year*rainFall"/>
+    <Coordinate type_="polar"/>
   </Chart>
 }

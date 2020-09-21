@@ -8,5 +8,6 @@ let make = () => {
 
   <div style>
     <Example1/>
+    <Example2/>
   </div>
 }
